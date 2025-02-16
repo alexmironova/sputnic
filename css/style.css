@@ -1,0 +1,330 @@
+/* Анимация */
+/* @keyframes scroll-logos {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-50%); 
+    }
+} */
+
+/* Анимация */
+/* @keyframes scroll-logos {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-logos2 {
+    0% {
+        transform: translateX(1500px); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+} */
+
+@keyframes slide {
+    0% {
+      transform: translateX(100%); /* Начало анимации за пределами справа */
+    }
+    100% {
+      transform: translateX(-100%); /* Конец анимации — логотипы уходят влево */
+    }
+  }
+
+/* FONTS */
+
+@font-face {
+    font-family: 'HelveticaNeue'; /* Название шрифта */
+    src: url(/css/HelveticaNeue.ttc) format('ttc');
+ 
+    font-weight: normal; /* Обычное начертание */
+    font-style: normal; /* Обычный стиль */
+}
+
+
+
+/* Базовые стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: HelveticaNeue, sans-serif;
+    font-size: 10px; /* Теперь 1rem = 10px */
+    box-sizing: border-box;
+    
+}
+.nirvana {
+    opacity: 0;
+    position: absolute;
+}
+img.nirvana {
+    /* display: none; */
+    width: 300px;
+}
+/* Секция с фоновой картинкой */
+.hero-section {
+    /* background-image: url('/items/mainBG.jpg'); 
+    background-size: cover;
+    background-position: center; */
+
+    background-color: #0071BC;
+    height: 90vh; /* На всю высоту экрана */
+    width: 100vw;
+    display: flex;
+    /* flex-direction: column;
+    align-items: center; */
+    justify-content:space-between;
+    color: white;
+    /* text-align: center; */
+     /* Отступ сверху для заголовка */
+
+    position: static;
+    z-index: 4;
+    overflow: hidden;
+}
+
+
+
+/* Главный заголовок */
+.header-title {
+    /* max-width: 80%; */
+    height: 4rem;
+    width: 52rem;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img.header-title {
+    object-position: center top;
+}
+
+/* Блок с заголовком поменьше и подзаголовком */
+.content-block {
+    /* position:absolute; */
+    margin-top: 50px;
+    margin-left: 20rem;
+    left: 100px;
+    text-align: left;
+    width: 80%; /* Ширина блока */
+    max-width: 800px; /* Максимальная ширина */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.nirvanaMAIN {
+margin-top: 0;
+/* width: 60vw; */
+height: 60vh;
+}
+
+
+.sub-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+    line-height: 15px;
+}
+.sub-text-mob{
+    display: none;
+}
+
+/* Футер */
+/* .footer {
+    background-color: white;
+    padding: 20px 0;
+     overflow: hidden; 
+    position: relative;
+} */
+
+.footer {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px 0 20px 0;
+    /* overflow: hidden; */
+    position: relative;
+  }
+
+  .footer-logos {
+    display: flex;
+    width: max-content;
+    animation: slide 20s linear infinite;
+  }
+  .footer-logos img {
+    margin-right: 50px;
+    max-height: 50px;
+    object-fit: contain;
+  }
+/* .logo-container {
+    display: inline-flex; Логотипы в одну строку 
+    white-space: nowrap; Запрет переноса на новую строку 
+    animation: scroll-logos 20s linear infinite;
+} */
+
+
+
+.logo-container img {
+    flex-shrink: 0; /* Запрет сжатия логотипов */
+
+    height: 30px;
+
+    margin: 20px 40px 20px 20px;
+}
+
+.logo-container2 img {
+    flex-shrink: 0; /* Запрет сжатия логотипов */
+
+    height: 30px;
+
+    margin: 20px 40px 20px 20px;
+}
+
+.logo-item {
+    position: relative; /* Родительский контейнер */
+}
+
+.logo-item img {
+    /* height: 50px; */
+    display: block;
+}
+
+.logo-text {
+        position: absolute;
+        top: -170px; /* Позиция текста сверху */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(213, 213, 213, 0.8); /* Фон текста */
+        color: rgb(0, 0, 0); /* Цвет текста */
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0; /* Текст скрыт по умолчанию */
+        transition: opacity 0.3s ease; /* Плавное появление */
+        pointer-events: none; /* Чтобы текст не мешал наведению */
+        width: 150px; /* Ограничение ширины текста */
+        text-align: center; /* Текст по центру */
+        white-space: normal; /* Перенос текста на новую строку */
+        z-index: 25;
+    }
+
+
+
+.logo-item:hover .logo-text {
+    opacity: 1; /* Показываем текст при наведении */
+    cursor: pointer;
+}
+
+
+
+
+/* Адаптация под мобильные устройства */
+
+@media (max-width: 768px) {
+    .header-title {
+        height: 3rem;
+        width: 39rem;
+    }
+
+    .sub-title {
+        font-size: 4rem; /* доделать шрифты */
+    }
+
+    .sub-text {
+        line-height: 20px;
+        font-size: 1.7rem; /* Уменьшаем размер текста rem = 10px */
+    }
+
+    .content-block {
+        width: 90%; /* Увеличиваем ширину блока для мобильных */
+    }
+    /* footer */
+    .logo-container img {
+        /* height: 40px; */
+        margin-right: 20px;
+    }
+
+    .logo-container {
+        animation-duration: 15s;
+    }
+    
+    .logo-container {
+        width: 200%; /* Полоса на всю ширину экрана */
+        overflow: hidden; /* Скрываем всё, что выходит за пределы */
+    }
+
+    .logo-item {
+        flex: 0 0 auto; /* Логотипы не сжимаются */
+        margin-right: 20px; /* Уменьшаем отступ между логотипами */
+    }
+
+    .logo-item img {
+       /* height: 40px;  Уменьшаем высоту логотипов */
+    }
+
+    .logo-text {
+        overflow: hidden;
+    }
+
+    .logo-text {
+        top: -35px; /* Поднимаем текст выше */
+        font-size: 5px; /* Уменьшаем размер текста */
+        width: 80px; /* Уменьшаем ширину текстового блока */
+    }
+    .nirvanaMAIN {
+       display: none;
+        }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        margin-bottom: 20px;
+        max-width: 90%;
+    }
+
+    .hero-section {
+        background-image: none;
+        /* max-height: 80vh; */
+    }
+
+    img.nirvana {
+        opacity: 1;
+        width: 40rem;
+        z-index: 0;
+        margin-top: 80px;
+    }
+
+    img.nirvana {
+        display:inline-block;
+    }
+
+    .content-block {
+        z-index: 1;
+        margin: 0 20px 0 20px;
+        justify-content: flex-end;
+        margin-bottom: 50px;
+    }
+
+    .sub-title {
+        font-size: 4.5rem; /* доделать шрифты */
+    }
+    .sub-text-mob{
+        margin-top: 20px;
+        display: block;
+        font-size: 2rem;
+    }
+    .sub-text {
+        display: none;
+         /* Уменьшаем размер текста rem = 10px */
+    }
+}
