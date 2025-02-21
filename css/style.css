@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: 'HelveticaNeue'; /* Название шрифта */
-    src: url(/css/HelveticaNeue.ttc) format('ttc');
+    src: url(css/HelveticaNeue.ttc) format('ttc');
  
     font-weight: normal; /* Обычное начертание */
     font-style: normal; /* Обычный стиль */
