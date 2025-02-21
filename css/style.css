@@ -1,40 +1,14 @@
-/* Анимация */
-/* @keyframes scroll-logos {
-    0% {
-        transform: translateX(0); 
-    }
-    100% {
-        transform: translateX(-50%); 
-    }
-} */
 
-/* Анимация */
-/* @keyframes scroll-logos {
+@keyframes scroll {
     0% {
-        transform: translateX(0); 
+      transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes scroll-logos2 {
-    0% {
-        transform: translateX(1500px); 
-    }
-    100% {
-        transform: translateX(-100%); 
-    }
-} */
-
-@keyframes slide {
-    0% {
-      transform: translateX(100%); /* Начало анимации за пределами справа */
-    }
-    100% {
-      transform: translateX(-100%); /* Конец анимации — логотипы уходят влево */
+      transform: translateX(-50%);
     }
   }
+
+
 
 /* FONTS */
 
@@ -57,34 +31,44 @@ body, html {
     box-sizing: border-box;
     
 }
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+
+
+
+
+
+
+
 .nirvana {
     opacity: 0;
     position: absolute;
 }
 img.nirvana {
-    /* display: none; */
+    display: none;
     width: 300px;
 }
 /* Секция с фоновой картинкой */
 .hero-section {
-    /* background-image: url('/items/mainBG.jpg'); 
-    background-size: cover;
-    background-position: center; */
+
 
     background-color: #0071BC;
     height: 90vh; /* На всю высоту экрана */
     width: 100vw;
     display: flex;
-    /* flex-direction: column;
-    align-items: center; */
     justify-content:space-between;
     color: white;
-    /* text-align: center; */
-     /* Отступ сверху для заголовка */
+    position: relative;
+    z-index: -11;
 
-    position: static;
-    z-index: 4;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
@@ -92,12 +76,12 @@ img.nirvana {
 /* Главный заголовок */
 .header-title {
     /* max-width: 80%; */
-    height: 4rem;
-    width: 52rem;
+    height: 5rem;
+    width: auto;
     position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 2.5rem;
+    margin-left: 10rem;
+   
 }
 
 img.header-title {
@@ -124,6 +108,9 @@ margin-top: 0;
 height: 60vh;
 }
 
+.headmob {
+    display: none;
+}
 
 .sub-title {
     font-size: 4rem;
@@ -140,95 +127,140 @@ height: 60vh;
     display: none;
 }
 
-/* Футер */
-/* .footer {
-    background-color: white;
-    padding: 20px 0;
-     overflow: hidden; 
-    position: relative;
-} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer {
     width: 100%;
+    height: 15vh;
     background-color: #ffffff;
-    padding: 20px 0 20px 0;
+    /* padding: 20px 0 20px 0; */
     /* overflow: hidden; */
     position: relative;
   }
-
-  .footer-logos {
-    display: flex;
-    width: max-content;
-    animation: slide 20s linear infinite;
-  }
-  .footer-logos img {
-    margin-right: 50px;
-    max-height: 50px;
-    object-fit: contain;
-  }
-/* .logo-container {
-    display: inline-flex; Логотипы в одну строку 
-    white-space: nowrap; Запрет переноса на новую строку 
-    animation: scroll-logos 20s linear infinite;
-} */
+ 
 
 
 
-.logo-container img {
-    flex-shrink: 0; /* Запрет сжатия логотипов */
-
-    height: 30px;
-
-    margin: 20px 40px 20px 20px;
-}
-
-.logo-container2 img {
-    flex-shrink: 0; /* Запрет сжатия логотипов */
-
-    height: 30px;
-
-    margin: 20px 40px 20px 20px;
-}
-
-.logo-item {
-    position: relative; /* Родительский контейнер */
-}
-
-.logo-item img {
-    /* height: 50px; */
-    display: block;
-}
 
 .logo-text {
         position: absolute;
         top: -170px; /* Позиция текста сверху */
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(213, 213, 213, 0.8); /* Фон текста */
+        background-color: rgb(255, 255, 255); /* Фон текста */
         color: rgb(0, 0, 0); /* Цвет текста */
         padding: 5px 10px;
+        border: 1px solid rgba(166, 166, 166, 0.78);
         border-radius: 5px;
         font-size: 14px;
         opacity: 0; /* Текст скрыт по умолчанию */
         transition: opacity 0.3s ease; /* Плавное появление */
         pointer-events: none; /* Чтобы текст не мешал наведению */
-        width: 150px; /* Ограничение ширины текста */
-        text-align: center; /* Текст по центру */
-        white-space: normal; /* Перенос текста на новую строку */
-        z-index: 25;
+        width: 150px; 
+        text-align: center; 
+        white-space: normal; 
+        z-index: 215;
+        
     }
 
+ 
 
-
-.logo-item:hover .logo-text {
-    opacity: 1; /* Показываем текст при наведении */
-    cursor: pointer;
+.ket_ {
+    margin-left: -10px;
 }
 
+.ban {
+    margin-right: 5px;
+}
+carousel {
+
+
+    display: flex;
+    /* overflow: hidden;  */
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+    
+    align-items: center;
+    white-space: nowrap; 
+  }
+
+
+carousel::before,
+carousel::after {
+  content: "";
+  background: linear-gradient(
+    to right,
+    white 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: absolute;
+  height: 100%;
+  width: 25rem;
+  z-index: 22;
+}
+
+carousel::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+carousel::before {
+  left: 0;
+  top: 0;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center; 
+  gap: 8rem;
+  animation: scroll 20s linear infinite;
+
+
+}
+ carousel .logo-item {
+    position: relative;
+    max-height: 100%; 
+    width: auto; 
+    object-fit: contain; 
+    display: inline-block; 
+    /* filter: grayscale(100%); */
+
+  }
+
+
+footer .logo-item:hover .logo-text {
+    position: fixed;  
+    opacity: 1;
+    transform: translateX(-50%);  
+    z-index: 10;  
+  }
 
 
 
-/* Адаптация под мобильные устройства */
+
+
+
+
+
+
+/*_____________________________
+ Адаптация под мобильные устройства 
+ _________________________________*/
 
 @media (max-width: 768px) {
     .header-title {
@@ -248,14 +280,20 @@ height: 60vh;
     .content-block {
         width: 90%; /* Увеличиваем ширину блока для мобильных */
     }
+
+
+
     /* footer */
+    .footer {
+        margin-bottom: 45000px;
+    }
     .logo-container img {
         /* height: 40px; */
         margin-right: 20px;
     }
 
     .logo-container {
-        animation-duration: 15s;
+        /* animation-duration: 15s; */
     }
     
     .logo-container {
@@ -284,16 +322,28 @@ height: 60vh;
     .nirvanaMAIN {
        display: none;
         }
+        img.nirvana {
+            display:inline-block;
+            width: 300px;
+        }
 }
 
 @media (max-width: 480px) {
     .header-title {
-        margin-bottom: 20px;
-        max-width: 90%;
+        display: none;
+        
+    }
+    .headmob {
+        display: flex;
+        justify-content: center;
+        background-color: #0071BC;
+        padding-top: 40px;
     }
 
     .hero-section {
         background-image: none;
+        overflow: hidden;
+        height: auto;
         /* max-height: 80vh; */
     }
 
@@ -304,15 +354,18 @@ height: 60vh;
         margin-top: 80px;
     }
 
-    img.nirvana {
-        display:inline-block;
+    .nirvana {
+        top: -70px;
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out; /* Плавность анимации */
+        will-change: transform, opacity; /* Оптимизация для браузера */
     }
 
     .content-block {
         z-index: 1;
-        margin: 0 20px 0 20px;
-        justify-content: flex-end;
-        margin-bottom: 50px;
+        margin: 50px 20px;
+        /* justify-content: flex-end; */
+        margin-top: 700px;
+        /* margin-bottom: 50px; */
     }
 
     .sub-title {
@@ -326,5 +379,10 @@ height: 60vh;
     .sub-text {
         display: none;
          /* Уменьшаем размер текста rem = 10px */
+    }
+
+    .textyt {
+        position: absolute;
+        z-index: 10;
     }
 }
